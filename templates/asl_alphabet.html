@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div style="text-align: center;">
+<!--====================================================== Change Mode Btn =======================================================-->
+    <div class="mode_container">
+        <div class="mode_btn_container">
+            <button class="mode_btn" onclick="location.href = '/'">Drawing Mode</button>
+            <button class="mode_btn" onclick="location.href = '/asl'">ASL-Alphabet Mode</button>
+        </div>
+    </div>
+<!--====================================================== Camera =======================================================-->
+    <img src="{{ url_for('camera_asl') }}" alt="Camera Feed" class="camera-feed">
+
+<!--====================================================== Show the word from result =======================================================-->
+    <div class="show_result">
+        <h3>Your Text from ASL:</h3>
+        <!--p id="warning-result" class="warning_result">Please Show Your Hand At The Camera Clearly</p--> 
+        <div id="prediction-history" class="result"></div> 
+    </div>
+</div>
+
+<!--======================================================  Result's js =======================================================-->
+<script>
+    document.addEventListener('keydown', function (event) {
+        //Pressed Spacebar to predict the current ASL-Alphabet
+        if (event.code === 'Space') {
+            //Send a request to the server to trigger AI prediction
+            fetch('/predict_asl', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.prediction);
+                    //Display the result (The prediction continue in order)
+                    document.getElementById('prediction-history').innerText = data.history.join('');
+                    /*
+                    //Show warning
+                    if(prediction == 'Nothing'){
+                        var visible_warning = document.getElementById('warning-result');
+                        visible_warning.style.display = ''; 
+                    }
+                    //Hide warning
+                    else{
+                        var invisible_warning = document.getElementById('warning-result');
+                        invisible_warning.style.display = 'none'; 
+                    }
+                    */
+            });
+         }
+
+        // Pressed Enter to clear prediction history
+        else if (event.code === 'Enter') {
+            fetch('/clear_result', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Result cleared');
+                    //Clear the result
+                    document.getElementById('prediction-history').innerText = '';
+            });
+        }
+
+        else if (event.code === 'Backspace') {
+            fetch('/delete_lastprediction', { method: 'POST' })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Last prediction deleted');
+                //Display the updated prediction history
+                document.getElementById('prediction-history').innerText = data.history.join('');
+            });
+        }
+    });
+</script>
+{% endblock %}
+

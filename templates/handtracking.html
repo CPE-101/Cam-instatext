@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div style="text-align: center;">
+<!--====================================================== Change Mode Btn =======================================================-->
+    <div class="mode_container">
+        <div class="mode_btn_container">
+            <button class="mode_btn" onclick="location.href = '/'">Drawing Mode</button>
+            <button class="mode_btn" onclick="location.href = '/asl'">ASL-Alphabet Mode</button>
+        </div>
+    </div>
+<!--====================================================== Camera =======================================================-->
+    <img src="{{ url_for('camera_drawing') }}" alt="Camera Feed" class="camera-feed">
+
+<!--====================================================== Show the word from result =======================================================-->
+    <div class="show_result">
+        <h3>Your Text from Drawing:</h3>
+        <p id="result-text" class="result"></p> 
+    </div>
+</div>
+
+<!--======================================================  Result's js =======================================================-->
+<script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    //Listen for text updates from the server
+    socket.on('text_updated', function(data) {
+        //Update the text
+        document.getElementById('result-text').innerText = data.result;
+    });
+</script>
+{% endblock %}

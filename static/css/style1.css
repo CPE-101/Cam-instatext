@@ -1,0 +1,306 @@
+/*============================= Root =============================*/
+:root {
+    --biggest-font-size: 2.25rem;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+  
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    
+    --darkest-gray: #1d1d1d;
+    --darker-gray: #282828;
+    --yellow-gold: #FFBD59;
+  }
+  
+@media screen and (min-width: 768px){
+    :root{
+    --biggest-font-size: 5.5rem;
+    --big-font-size:3rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
+    }
+}
+
+/*============================= Tags =============================*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+    
+html {
+    scroll-behavior: smooth;
+}
+    
+body {
+    margin: 0;
+    font-size: var(--normal-font-size);
+}
+    
+h1,h2,h3,p,ul{
+    margin: 0;
+}
+  
+ul{ 
+    list-style: none;
+}
+    
+a{
+    text-decoration: none;
+}
+  
+.header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #000000;
+}
+
+/*============================= Scroll =============================*/
+.header_scrolled{
+    background-color: #000000;
+  }
+
+/*============================= Nav =============================*/
+.nav{
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.containerNav{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+  
+.nav_logo{
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+  
+.nav_logo_img{
+    width: 15rem;
+}
+  
+.nav_link{
+    font-size: 1.2rem;
+    font-weight:bold;
+}
+  
+.nav_link,
+.nav_logo,
+.nav_toggle,
+.nav_close{
+    color: #FFFFFF;
+}
+    
+.nav_toggle{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+  
+.nav_menu{
+    padding: 3.5rem 0;
+}
+    
+.nav_close{
+    font-size: 1.8rem;
+    position: absolute;
+    top: .5rem;
+    right: .7rem;
+    cursor: pointer;
+}
+   
+.nav_link{
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: .4s;
+    text-decoration: none;
+}
+  
+.nav_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+  
+.nav_list a{
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: large;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+  
+.nav_list a:hover{
+    display: block;
+    background-color: #A8A8A8;
+    opacity:0.8;
+    border-radius: 3px;
+    transition: 0.4s;
+}
+
+/*============================= Mode =============================*/
+.mode_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+.mode_btn_container {
+    display: flex;
+}
+
+.mode_btn{
+    text-align:center;
+    cursor: pointer;
+    background-color: var(--darkest-gray);
+    font-weight: bold;
+    font-size: large;
+    color:#FFFFFF;
+    height: 50px;
+}
+
+.mode_btn:Hover{
+    background-color: #000000;
+    color: var(--yellow-gold);
+}
+
+/*============================= Result =============================*/
+.show_result{
+    margin-top:20px;
+}
+
+.show_result h3{
+    color: #ffffff;
+}
+
+.result{
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-medium);
+    color: var(--yellow-gold);
+}
+
+.warning_result{
+    font-size: var(--normal-font-size);
+    color: red;
+}
+
+/*============================= Breakpoint =============================*/
+/*============================= Breakpoint =============================*/
+/*============================= Breakpoint =============================*/
+/* Small devices */
+@media screen and (max-width: 320px){
+.containerNav{
+      margin-left: 1rem;
+      margin-right: 1rem;
+}
+}
+@media screen and (max-width: 767px){
+.mode_container{
+        margin-top: 20%;
+}
+.mode_btn{
+        width: 180px;
+}
+.camera-feed{
+        width: 360px;
+}
+}    
+@media screen and (min-width: 767px){
+.nav_list{
+      flex-direction: row;
+      column-gap: 3rem;
+}
+.mode_container{
+        margin-top: 12%;
+}
+.mode_btn{
+        width: 280px;
+}
+.camera-feed{
+        width: 560px;
+}
+}
+    
+@media screen and (max-width: 992px){
+.nav_menu{
+      position: fixed;
+      width: 100%;
+      background: linear-gradient(180deg, #2B2B2B 0%,#000000  100%);
+      top: -150%;
+      left: 0;
+      padding: 3.5rem 0;
+      transition: .4s;
+      z-index: 100;
+}
+.show-menutab{
+      top: 0;
+}
+}
+  
+/* Large devices */
+@media screen and (min-width: 992px){
+body{
+      margin: 0;
+}
+.nav{
+      height: 4.5rem;
+}
+.nav_close,
+.nav_toggle{
+      display: none;
+}
+.nav_link{
+      text-transform: initial;
+      font-weight: initial;
+}
+.containerNav{
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+}
+.nav_menu{
+      padding: 0;
+}
+.nav_logo_img{
+      width: 18rem;
+}
+.mode_container {
+      margin-top: 8%;
+}
+.mode_btn{
+    width: 360px;
+}
+.camera-feed{
+    width: 720px;
+}
+}
+    
+@media screen and (max-width: 1400px){  
+}
+  
+@media screen and (min-width: 1400px){ 
+}
+  
