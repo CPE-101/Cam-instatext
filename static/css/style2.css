@@ -14,7 +14,8 @@
     
     --darkest-gray: #1d1d1d;
     --darker-gray: #1a1e2e;
-    --yellow-gold: #43b7b8;
+    --yellow-gold: #FFBD59;
+    --teal: #43b7b8;
   }
   
 @media screen and (min-width: 768px){
@@ -69,7 +70,7 @@ a{
 
 /*============================= Scroll =============================*/
 .header_scrolled{
-    background-color: #000000;
+    background-color: transparent;
   }
 
 /*============================= Nav =============================*/
@@ -92,7 +93,7 @@ a{
 }
   
 .nav_logo_img{
-    width: 15rem;
+    width: 5rem;
 }
   
 .nav_link{
@@ -224,7 +225,7 @@ a{
     font-family: "JetBrains Mono",monospace;
     font-size: var(--biggest-font-size);
     font-weight: var(--font-medium);
-    color: var(--yellow-gold);
+    color: var(--teal);
 }
 
 .warning_result{
@@ -234,6 +235,78 @@ a{
     color:#FCFCFD;
 }
 
+/*============================= Teaching =============================*/
+.drawing_teaching_container{
+    align-items: center;
+    justify-content: center;    
+    text-align: center;
+    margin: 10% 18rem 0 18rem;
+}
+
+.drawing_teaching_container h1{
+    color: var(--yellow-gold);
+    padding-bottom: 4rem;
+    font-weight: 700;
+}
+
+.dt_card{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.dt_card:hover{
+  cursor: pointer;
+}
+
+.dt_card img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.dt_card:hover img{
+  transform: scale(1.3);
+}
+
+.dt_body{
+  display: block;
+  margin: 0 1 0 2rem;
+}
+
+.dt_body h3{
+    font-size: var(--h3-font-size);
+    font-weight:bolder;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.asl_teaching_container{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 7.2rem 18rem 5rem 18rem;
+}
+.asl_teaching_container img{
+    width: 80%;
+}
+.asl_teaching_container h1{
+    color: var(--yellow-gold);
+    padding-bottom: 2rem;
+    font-weight: 700;
+}
 /*============================= Breakpoint =============================*/
 /*============================= Breakpoint =============================*/
 /*============================= Breakpoint =============================*/
@@ -246,10 +319,10 @@ a{
 }
 @media screen and (max-width: 767px){
 .mode_container{
-        margin-top: 20%;
+        margin-top: 24%;
 }
 .mode_btn{
-        width: 180px;
+        width: 60px;
 }
 .camera-feed{
         width: 360px;
@@ -261,10 +334,10 @@ a{
       column-gap: 3rem;
 }
 .mode_container{
-        margin-top: 12%;
+        margin-top: 14%;
 }
 .mode_btn{
-        width: 280px;
+        width: 100px;
 }
 .camera-feed{
         width: 560px;
@@ -293,7 +366,7 @@ body{
       margin: 0;
 }
 .nav{
-      height: 4.5rem;
+      height: 6rem;
 }
 .nav_close,
 .nav_toggle{
@@ -311,10 +384,10 @@ body{
       padding: 0;
 }
 .nav_logo_img{
-      width: 18rem;
+      width: 6.5rem;
 }
 .mode_container {
-      margin-top: 8%;
+      margin-top: 10%;
 }
 .mode_btn{
     width: 360px;

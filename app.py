@@ -12,6 +12,8 @@ from PIL import Image
 import pathlib
 import HandTrackingModule as htm
 
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+
 app = Flask(__name__)
 socketio = SocketIO(app)
 
@@ -21,13 +23,11 @@ def drawing_mode():
 
 @app.route('/asl')
 def asl_mode():
-    text=[]
     prediction_history.clear()
     return render_template('asl_alphabet.html')
 
 @app.route('/teaching')
 def teach_mode():
-    text=[]
     return render_template('teaching.html')
 
 #--====================================================== Camera =======================================================--#
@@ -113,7 +113,7 @@ def generate_hand_tracking_frames():
                             text.pop(-1)
                             update_text(text)
                             last_pop_time = current_time  #Update the last_pop_time
-                            time.sleep(1) #delay time for the loop to not update too fast (that will take a lot of ram)
+                            # time.sleep(1) #delay time for the loop to not update too fast (that will take a lot of ram)
                         except:
                             pass
                 #Predicting text
